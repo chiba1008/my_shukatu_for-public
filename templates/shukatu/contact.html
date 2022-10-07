@@ -1,0 +1,32 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}Contact | My Shukatu{% endblock %}
+
+
+{% block contents %}
+
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">お問い合わせ</h6>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-floating">
+                    <div class="form-group floating-labelform-group controls">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        <p class="help-block text-danger"></p>
+                    </div>
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary p-3" id="sendMessageButton">送信</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

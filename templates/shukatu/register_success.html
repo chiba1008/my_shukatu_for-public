@@ -1,0 +1,14 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}}Register Success | My Shukatu{% endblock %}
+
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">企業情報を登録しました。</h1>
+    <a href="{% url 'shukatu:company_list' %}" class="btn btn-primary my-2">企業一覧へ</a>
+</div>
+{% endblock %}

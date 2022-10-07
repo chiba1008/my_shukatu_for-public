@@ -1,0 +1,47 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Company List | My Shukatu{% endblock %}
+
+{% block contents %}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">企業一覧</h1>
+        <a href="{% url 'shukatu:register_company' %}" class="btn btn-primary my-2">企業を登録する</a>
+        <!-- DataTales Example -->
+        {% if orderby_title_records %}
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>企業名</th>
+                                <th>My Page ID</th>
+                                <th>My Page URL</th>
+                                <th>Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in orderby_title_records %}
+                            <tr>
+                                <td><a href="{% url 'shukatu:company_detail' record.pk %}">{{record.title}}</a></td>
+                                <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0;">{{record.myPageId}}</td>
+                                <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0;"><a href="{{ record.myPageUrl }}" target="_blank">{{record.myPageUrl}}</a></td>
+                                <td>{{record.category}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% else %}
+    
+        {% endif %}
+</div>
+
+{% endblock %}

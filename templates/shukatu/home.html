@@ -1,0 +1,44 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+{% block title %}My Shukatu | エントリーした企業のMyPageIDとMyPageURLを一括管理するサービス{% endblock %}
+
+
+{% block contents %}
+{% if orderby_posted_records %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">最近登録した企業</h1>
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>企業名</th>
+                            <th>My Page ID</th>
+                            <th>My Page URL</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for record in orderby_posted_records %}
+                        <tr>
+                            <td><a href="{% url 'shukatu:company_detail' record.pk %}">{{record.title}}</a></td>
+                            <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0;">{{record.myPageId}}</td>
+                            <td style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden; max-width: 0;"><a href="{{ record.myPageUrl }}" target="_blank">{{record.myPageUrl}}</a></td>
+                            <td>{{record.category}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+
+{% endif %}
+
+{% endblock %}

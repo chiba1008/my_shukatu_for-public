@@ -1,0 +1,38 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}{{object.title}} | My Shukatu{% endblock %}
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">{{object.title}}</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <tr>
+                        <th>My Page ID</th><td>{{object.myPageId}}</td>
+                    </tr>
+                    <tr>
+                        <th>My Page URL</th><td><a href="{{ record.myPageUrl }}" target="_blank">{{object.myPageUrl}}</a></td>
+                    </tr>
+                    <tr>
+                        <th>カテゴリー</th><td>{{object.category}}</td>
+                    </tr>
+                </table>
+                <form method="post">
+                    <div class="container pl-5 pr-5">
+                        <a href="{% url 'shukatu:company_update' object.pk %}" class="btn btn-ptimary my-2">編集する</a>
+                        <a href="{% url 'shukatu:company_delete' object.pk %}" class="btn btn-ptimary my-2">削除する</a>
+                    </div>
+                </form>
+                <span class="meta">
+                    <a href="{% url 'shukatu:company_list' %}" class="btn btn-primary my-2">企業一覧へ</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

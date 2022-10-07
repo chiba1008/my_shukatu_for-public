@@ -1,0 +1,39 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}Register Company | My Shukatu{% endblock %}
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">企業情報を登録する</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <th class="p-2">企業名</th>
+                        <td>{{ form.title }}</td>
+                    </tr>
+                    <tr>
+                        <th class="p-2">My Page ID</th>
+                        <td>{{ form.myPageId }}</td>
+                    </tr>
+                    <tr>
+                        <th class="p-2">My Page URL</th>
+                        <td>{{ form.myPageUrl }}</td>
+                    </tr>
+                    <tr>
+                        <th class="p-2">カテゴリー</th>
+                        <td>{{ form.category }}</td>
+                    </tr>
+                </table>
+                <br>
+                <button type="submit" class="btn btn-primary">登録する</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

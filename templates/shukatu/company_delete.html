@@ -1,0 +1,17 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %} Company Delete | My Shukatu{% endblock %}
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">{{object.title}}の情報を削除してもいいですか？</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-primary my-2" type="submit">削除する</button>
+        <a href="{% url 'shukatu:company_detail' object.pk %}" class="btn btn-secondary my-2">キャンセル</a>
+    </form>
+</div>
+{% endblock %}
