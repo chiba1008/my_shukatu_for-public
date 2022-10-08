@@ -6,4 +6,6 @@ urlpatterns = [
 
     path('', include('shukatu.urls')),
     path('account/', include('account.urls')), 
+    path('account/', include('es.urls')), 
+
 ]

@@ -1,4 +1,3 @@
-from re import L
 from django.shortcuts import render
 
 from django.views.generic.base import TemplateView
@@ -44,9 +43,8 @@ class CompanyDetailView(DetailView):
 
 class CreateCompanyView(LoginRequiredMixin, CreateView):
     model = ShukatuPost
-    from_class = RegisterCompanyForm
     template_name = 'shukatu/register_company.html'
-    success_url = reverse_lazy('shukatu:register_done')
+    success_url = reverse_lazy('shukatu:company_list')
     fields = ['title', 'myPageId', 'myPageUrl','category']
     login_url = '/account/login/'
 
@@ -58,19 +56,11 @@ class CreateCompanyView(LoginRequiredMixin, CreateView):
 
         return super().form_valid(form)
 
-
-
-class CreateSuccessView(LoginRequiredMixin, TemplateView):
-    template_name = 'shukatu/register_success.html'
-    login_url = '/account/login/'
-
-
 class CompanyDeleteView(DeleteView):
     model = ShukatuPost
     template_name = 'shukatu/company_delete.html'
     success_url = reverse_lazy('shukatu:company_list')
     login_url = '/account/login/'
-
 
     def delete(self, request, *args, **kwargs):
         return super().delete(request, *args, **kwargs)

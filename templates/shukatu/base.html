@@ -32,7 +32,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'shukatu:home' %}">
@@ -52,13 +52,16 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'shukatu:company_list' %}">
+                <a class="nav-link pt-2 pb-3" href="{% url 'shukatu:company_list' %}">
                     <i class="bi bi-building"></i>
                     <span>企業一覧</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link pt-2 pb-3" href="{% url 'es:es_list' %}">
+                    <i class="bi bi-building"></i>
+                    <span>ES Template</span></a>
+            </li>
             <div class="sidebar-heading">
                 Account
             </div>
@@ -70,7 +73,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{% url 'shukatu:contact' %}"}>Contact</a>
+                        <a class="collapse-item" href="https://form.run/embed/@myshukatucontact-1665155086?embed=direct">Contact</a>
                         <hr class="sidebar-divider">
                         <a class="collapse-item" href="{% url 'account:logout' %}">Log out</a>
                     </div>
@@ -109,7 +112,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="検索機能は準備中です"
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-success" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
@@ -154,6 +157,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{% static 'startbootstrap/js/sb-admin-2.min.js' %}"></script>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+
 
 </body>
 

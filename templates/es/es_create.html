@@ -1,0 +1,40 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}Register ES Template | My Shukatu{% endblock %}
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">ES Templateを登録する</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-2">
+                            <label class="form-label" for="name">タイトル</label>
+                            <input class="form-control" type="text" name="title" id="title">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label" for="address">本文</label>
+                            <textarea class="form-control" name="content" id="content" rows="5" onkeyup="ShowLength(value);"></textarea>
+                            <p id="inputlength">0文字</p>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-success btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-check"></i>
+                            </span>
+                            <span class="text">登録する</span>
+                        </button>
+                        <a href="{% url 'es:es_list' %}" class="btn btn-secondary my-2">戻る</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

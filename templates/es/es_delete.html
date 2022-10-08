@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %} Company Delete | My Shukatu{% endblock %}
+{% block title %} Delete | My Shukatu{% endblock %}
 
 {% block contents %}
 <div class="container-fluid">
@@ -16,7 +16,7 @@
             </span>
             <span class="text">削除する</span>
         </button>
-        <a href="{% url 'shukatu:company_detail' object.pk %}" class="btn btn-secondary my-2">キャンセル</a>
+        <a href="{% url 'es:es_list' %}" class="btn btn-secondary my-2">キャンセル</a>
     </form>
 </div>
 {% endblock %}

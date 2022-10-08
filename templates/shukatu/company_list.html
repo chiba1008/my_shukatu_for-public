@@ -2,7 +2,6 @@
 
 {% load static %}
 
-
 {% block title %}Company List | My Shukatu{% endblock %}
 
 {% block contents %}
@@ -10,7 +9,7 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">企業一覧</h1>
-        <a href="{% url 'shukatu:register_company' %}" class="btn btn-primary my-2">企業を登録する</a>
+        <a href="{% url 'shukatu:register_company' %}" class="btn btn-success my-2">企業を登録する</a>
         <!-- DataTales Example -->
         {% if orderby_title_records %}
         <div class="card shadow mb-4">
@@ -43,5 +42,4 @@
     
         {% endif %}
 </div>
-
 {% endblock %}

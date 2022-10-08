@@ -1,0 +1,36 @@
+{% extends 'shukatu/base.html' %}
+
+{% load static %}
+
+{% block title %}Update | My Shukatu{% endblock %}
+
+{% block contents %}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">ES Templateを編集する</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-2">
+                    <label class="form-label" for="name">タイトル</label>
+                    {{ form.title }}
+                </div>
+                <div class="mb-2">
+                    <label class="form-label" for="address">本文</label>
+                    {{ form.content }}
+                    <p id="inputlength">0文字</p>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary btn-icon-split my-2">
+                    <span class="icon text-white-50">
+                        <i class="bi bi-pencil-square"></i>
+                    </span>
+                    <span class="text">編集する</span>
+                </button>
+                <a href="{% url 'es:es_list' %}" class="btn btn-secondary my-2">キャンセル</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

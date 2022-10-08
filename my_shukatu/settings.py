@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     'shukatu.apps.ShukatuConfig',
     'account.apps.AccountConfig',
+    'es.apps.EsConfig',
 
     'django.contrib.sites', 
 
